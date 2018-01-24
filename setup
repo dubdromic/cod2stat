@@ -1,0 +1,6 @@
+#!/bin/bash
+
+psql -U cod2log -d postgres -c "DROP DATABASE IF EXISTS cod2log;"
+psql -U cod2log -d postgres -c "CREATE DATABASE cod2log;"
+psql -U cod2log -d cod2log -a -f schema.sql
+psql -U cod2log -d cod2log -a -f seed.sql
