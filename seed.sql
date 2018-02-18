@@ -30,25 +30,46 @@ INSERT INTO public.weapons
 VALUES
   ('Bren', 'bren_mp'),
   ('Lee-Enfield Scoped', 'enfield_scope_mp'),
+  ('Lee-Enfield', 'enfield_mp'),
+  ('Mosin Scoped', 'mosin_nagant_sniper_mp'),
+  ('Mosin', 'mosin_nagant_mp'),
   ('Grenade', 'frag_grenade_british_mp'),
+  ('Grenade', 'frag_grenade_american_mp'),
+  ('Grenade', 'frag_grenade_russian_mp'),
   ('Grenade', 'frag_grenade_german_mp'),
   ('Gewher', 'g43_mp'),
   ('Kar 98', 'kar98k_mp'),
   ('Kar 98 Sniper', 'kar98k_sniper_mp'),
   ('Luger', 'luger_mp'),
+  ('Springfield', 'springfield_mp'),
   ('M1 Garand', 'm1garand_mp'),
+  ('M1 Carbine', 'm1carbine_mp'),
   ('MG42', 'mg42_bipod_stand_mp'),
   ('MP44', 'mp44_mp'),
+  ('MP40', 'mp40_mp'),
+  ('Panzerschreck', 'panzerschreck_mp'),
+  ('SVT40', 'SVT40_mp'),
+  ('PPS42', 'PPS42_mp'),
+  ('PPSH', 'ppsh_mp'),
+  ('g30 Cal', '30cal_stand_mp'),
+  ('BAR', 'bar_mp'),
+  ('Grease Gun', 'greasegun_mp'),
   ('None', 'none'),
   ('Shotgun', 'shotgun_mp'),
   ('Sten', 'sten_mp'),
   ('Thompson', 'thompson_mp'),
-  ('Webley', 'webley_mp')
+  ('Webley', 'webley_mp'),
+  ('TT30', 'TT30_mp'),
+  ('Colt', 'colt_mp')
 ON CONFLICT (identifier) DO NOTHING;
 
 INSERT INTO public.damage_types
   (name, identifier)
 VALUES
+  ('Trigger Hurt', 'MOD_TRIGGER_HURT'),
+  ('Projectile', 'MOD_PROJECTILE'),
+  ('Projectile', 'MOD_PROJECTILE_SPLASH'),
+  ('Explosive', 'MOD_EXPLOSIVE'),
   ('Falling', 'MOD_FALLING'),
   ('Grenade', 'MOD_GRENADE_SPLASH'),
   ('Head Shot', 'MOD_HEAD_SHOT'),

@@ -6,9 +6,9 @@ while read -r line; do
   if [[ "$line" == *"InitGame"* ]]; then
     GAME_LINES="$line"
   elif [[ "$line" == *"ShutdownGame"* ]]; then
-    echo "$GAME_LINES" | ./$1
+    echo "$GAME_LINES" | ./$1 | ./$2
     GAME_LINES=""
   else
     GAME_LINES="$GAME_LINES"$'\n'"$line"
   fi
-done
+done < /dev/stdin

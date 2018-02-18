@@ -1,9 +1,9 @@
 #!/bin/bash
 
 set -euf -o pipefail
-FILE="mp_server.log"
+FILE=${FILE:-mp_server.log}
 
-go build cod2log_to_json.go structs.go
-go build json_to_database.go structs.go
+# go build cod2log_to_json.go structs.go
+# go build json_to_database.go structs.go queries.go util.go
 
-cat $FILE | ./chunk_into cod2log_to_json # | ./json_to_database
+cat $FILE | ./chunk_into cod2log_to_json json_to_database

@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"encoding/json"
+	"fmt"
 	"os"
 	"regexp"
 	"strconv"
@@ -10,7 +11,7 @@ import (
 )
 
 func lineDelimiter() *regexp.Regexp {
-	return regexp.MustCompile(";|:|\\\\")
+	return regexp.MustCompile(";|\\\\")
 }
 
 func (l *Line) parseKDLine(parts []string) {
@@ -21,6 +22,7 @@ func (l *Line) parseKDLine(parts []string) {
 	l.Attackername = parts[8]
 	i, err := strconv.Atoi(parts[10])
 	if err != nil {
+		fmt.Println("%v", parts)
 		panic(err)
 	}
 	l.Damage = i
@@ -42,8 +44,8 @@ func (s *Stats) parseLine(line_number int, line string) {
 	if deets[0] == "K" || deets[0] == "D" {
 		l.parseKDLine(deets)
 		s.Lines = append(s.Lines, l)
-	} else if deets[0] == "InitGame" {
-		s.Mapname = deets[9]
+	} else if deets[0] == "InitGame: " {
+		s.Mapname = deets[8]
 	}
 }
 
