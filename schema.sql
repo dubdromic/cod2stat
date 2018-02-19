@@ -30,9 +30,9 @@ CREATE TABLE public.damage_locations (
 );
 
 CREATE TABLE public.casualties (
-  id serial primary key,
+  id bigserial primary key,
   game_id uuid references public.games(id),
-  line_number integer not null,
+  line_number bigint not null,
   timestamp text not null,
   line_type text not null,
   victim_team text,
@@ -47,9 +47,9 @@ CREATE TABLE public.casualties (
 );
 
 CREATE TABLE public.casualties_staging (
-  id serial primary key,
+  id bigserial primary key,
   game_id uuid references public.games(id),
-  line_number integer not null,
+  line_number bigint not null,
   timestamp text not null,
   line_type text not null,
   victim_team text,
